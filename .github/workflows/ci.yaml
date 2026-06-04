@@ -8,16 +8,16 @@ jobs:
     name: "mypy"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Install poetry
         run: pipx install poetry
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version-file: 'pyproject.toml'
           cache: 'poetry'
       - name: Install dependencies
         run: poetry install
-      - uses: tsuyoshicho/action-mypy@v4
+      - uses: tsuyoshicho/action-mypy@v5
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-check
@@ -29,10 +29,10 @@ jobs:
     name: "ruff"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Install poetry
         run: pipx install poetry
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version-file: 'pyproject.toml'
           cache: 'poetry'
